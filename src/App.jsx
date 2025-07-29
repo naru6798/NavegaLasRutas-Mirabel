@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <NavBar/>
-      <ItemListContainer info="En Hecteón somos un equipo apasionado por transformar espacios con luz, color y creatividad. Combinamos técnicas artesanales con tecnología para crear piezas únicas que iluminan y decoran con estilo y personalidad."/>
+      <ItemListContainer info="En Hecteón somos un equipo apasionado por transformar espacios con luz, color y creatividad. Combinamos técnicas artesanales de resina y con tecnología para crear piezas únicas que iluminan y decoran con estilo y personalidad."/>
     </>
   )
 }
