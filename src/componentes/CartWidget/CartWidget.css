@@ -1,0 +1,8 @@
+.cart-widget img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  margin-right: 10px;
+}
+

@@ -1,0 +1,64 @@
+
+header {
+  background-color: black;
+  color: #FEFEFF;
+  padding: 0.1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo y título */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #139CD8;
+  letter-spacing: 1px;
+}
+
+/* Menu + carrito */
+.menu-cart-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+div ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+div li {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #FEFEFF;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+div li:hover {
+  color: #e0f7ff;
+  transform: scale(1.05);
+}
