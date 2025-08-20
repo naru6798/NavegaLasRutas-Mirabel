@@ -1,14 +1,31 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer'
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer'
 import NavBar from './componentes/NavBar/NavBar'
-
+import Error from './componentes/Error/Error'
 
 const App = () => {
   return (
     <>
+
+    <BrowserRouter> 
+
       <NavBar/>
-      <ItemListContainer info="En Hecteón somos un equipo apasionado por transformar espacios con luz, color y creatividad. Combinamos técnicas artesanales de resina y con tecnología para crear piezas únicas que iluminan y decoran con estilo y personalidad."/>
+
+      <Routes>
+
+        <Route path="/" element={<ItemListContainer/>}/>
+        <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}/>
+        <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
+        <Route path="*" element={<Error/>}/>
+        
+      </Routes>
+
+    </BrowserRouter>
+
     </>
   )
 }
+
 export default App

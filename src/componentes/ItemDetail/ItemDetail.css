@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500&display=swap');
+
+.item-detail {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Imagen del producto */
+.item-detail img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.item-detail img:hover {
+  transform: scale(1.05);
+}
+
+/* ID debajo de la imagen */
+.item-detail .product-id {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Título elegante */
+.item-detail h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Precio destacado */
+.item-detail .precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000; /* base negro */
+  text-shadow: 
+    0 0 5px #00A3CC,
+    0 0 10px #00A3CC,
+    0 0 20px #00A3CC,
+    0 0 40px #00A3CC; /* efecto neón celeste */
+  margin: 10px 0;
+}
+
+
+
+/* Descripción */
+.item-detail p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-top: 25px;
+  color: #555;
+}
+
+/* Botón de Agregar al carrito con efecto glow */
+.item-detail button {
+  position: relative;
+  margin-top: 30px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  background: #000; /* negro de base */
+  color: #00A3CC; /* texto blanco inicial */
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover: cambio de color y glow */
+.item-detail button:hover {
+  transform: scale(1.05);
+  background: #00A3CC; /* celeste al pasar el cursor */
+  color: #fff;
+  box-shadow: 0 0 20px #00A3CC, 0 0 40px #00A3CC;
+}
+
+/* Efecto de resplandor interno animado */
+.item-detail button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,163,204,0.3) 20%, transparent 70%);
+  animation: pulse 3s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+
+/* Contenedor derecho (título, precio, descripción, contador y botón) centrado */
+.item-detail > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra todo el contenido a la derecha */
+  text-align: center;  /* centra textos */
+}
+
+/* Contador elegante */
+.item-count-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+}
+
+.item-count-container button {
+  background-color: #000;
+  color: #00A3CC;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.item-count-container button:hover {
+  background-color: #00A3CC;
+  color: #fff;
+}
+
+/* Número del contador */
+.item-count-container p {
+  margin: 0;
+  min-width: 40px;
+  text-align: center;
+}

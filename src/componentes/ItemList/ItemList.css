@@ -1,0 +1,7 @@
+.item-list-container {
+  display: flex;
+  flex-wrap: wrap;      /* permite que las cards pasen a la siguiente fila */
+  justify-content: center;  /* centra las cards horizontalmente */
+  gap: 20px;            /* espacio entre las cards */
+  padding: 20px;
+}

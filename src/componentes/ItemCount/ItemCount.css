@@ -1,0 +1,45 @@
+.contador-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* mantiene todo alineado a la izquierda */
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.contador-controles {
+  display: flex;
+  align-items: center;       /* centra verticalmente botones y número */
+  gap: 8px;
+  padding: 0;                /* eliminamos padding para que no cree un "cajón" */
+  background-color: transparent; /* quitamos el gris */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.contador-btn {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0d6efd;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.contador-btn:hover {
+  background-color: #0b5ed7;
+}
+
+.contador-num {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  min-width: 40px;            /* ancho fijo para que siempre quede alineado */
+  text-align: center;
+  display: flex;
+  align-items: center;         /* centra verticalmente respecto a los botones */
+  justify-content: center;     /* centra horizontalmente */
+  padding-top: 30px;
+}
