@@ -50,14 +50,12 @@
   font-weight: 700;
   color: #000; /* base negro */
   text-shadow: 
-    0 0 5px #00A3CC,
-    0 0 10px #00A3CC,
-    0 0 20px #00A3CC,
-    0 0 40px #00A3CC; /* efecto neón celeste */
+    0 0 3px #00A3CC,
+    0 0 6px #00A3CC,
+    0 0 12px #00A3CC,
+    0 0 20px #00A3CC; /* glow más sutil */
   margin: 10px 0;
 }
-
-
 
 /* Descripción */
 .item-detail p {
@@ -67,7 +65,7 @@
   color: #555;
 }
 
-/* Botón de Agregar al carrito con efecto glow */
+/* Botón de Agregar al carrito con efecto glow más suave */
 .item-detail button {
   position: relative;
   margin-top: 30px;
@@ -75,25 +73,25 @@
   border: none;
   border-radius: 50px;
   background: #000; /* negro de base */
-  color: #00A3CC; /* texto blanco inicial */
+  color: #00A3CC; /* texto inicial */
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   overflow: hidden;
   z-index: 1;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* más suave */
 }
 
-/* Hover: cambio de color y glow */
+/* Hover: glow más sutil */
 .item-detail button:hover {
   transform: scale(1.05);
-  background: #00A3CC; /* celeste al pasar el cursor */
+  background: #00A3CC;
   color: #fff;
-  box-shadow: 0 0 20px #00A3CC, 0 0 40px #00A3CC;
+  box-shadow: 0 0 10px #00A3CC, 0 0 20px #00A3CC;
 }
 
-/* Efecto de resplandor interno animado */
+/* Efecto de resplandor interno animado más suave */
 .item-detail button::before {
   content: '';
   position: absolute;
@@ -101,23 +99,22 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(0,163,204,0.3) 20%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,163,204,0.15) 20%, transparent 70%);
   animation: pulse 3s infinite;
   z-index: -1;
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.7; }
+  0% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.6; }
+  100% { transform: scale(0.9); opacity: 0.5; }
 }
 
-
-/* Contenedor derecho (título, precio, descripción, contador y botón) centrado */
+/* Contenedor derecho centrado */
 .item-detail > div:last-child {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centra todo el contenido a la derecha */
+  align-items: center; /* centra todo el contenido */
   text-align: center;  /* centra textos */
 }
 
@@ -142,11 +139,13 @@
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,163,204,0.2); /* glow más sutil */
 }
 
 .item-count-container button:hover {
   background-color: #00A3CC;
   color: #fff;
+  box-shadow: 0 0 5px #00A3CC, 0 0 10px #00A3CC; /* glow más suave */
 }
 
 /* Número del contador */

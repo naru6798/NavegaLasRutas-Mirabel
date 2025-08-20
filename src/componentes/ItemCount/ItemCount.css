@@ -26,6 +26,7 @@
   color: white;
   cursor: pointer;
   transition: background 0.2s ease;
+  
 }
 
 .contador-btn:hover {
