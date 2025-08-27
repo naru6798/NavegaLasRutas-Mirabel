@@ -3,6 +3,8 @@ import './ItemDetail.css'
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
+import { CarritoContext } from '../../context/CarritoContext';
+import { useContext } from 'react';
 
 
 const ItemDetail = ({id, nombre, precio, img, desc, stock}) => {
@@ -10,10 +12,15 @@ const ItemDetail = ({id, nombre, precio, img, desc, stock}) => {
   //Creamos un estado local con la cantidad de productos agregados.
   const [agregarCantidad, setAgregarCantidad] = useState(0);
 
+  const { agregarAlCarrito } = useContext(CarritoContext);
+
+
   // Creamos una función manejadora de la cantidad.
   const manejadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-    console.log("Productos agregados: " + cantidad);
+    //Creo un objeto con el item y la cantidad
+    const item = {id, nombre, precio, img}
+    agregarAlCarrito(item, cantidad);
   }
 
   return (
@@ -28,12 +35,15 @@ const ItemDetail = ({id, nombre, precio, img, desc, stock}) => {
         <p>{desc}</p>
 
 
-        {
-        // Aca empleamos la logica de montaje y desmontaje del contador.
-        agregarCantidad > 0 
-        ? (<Link to="/cart">Agregar al carrito</Link>) 
-        : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad}/>)
-        }
+        
+        {agregarCantidad > 0 ? (
+          <div className="botones-post-agregar">
+            <Link to="/" className="btn-neon">Seguir comprando</Link>
+            <Link to="/cart" className="btn-neon">Terminar compra</Link>
+          </div>
+        ) : (
+          <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad}/>
+        )}
 
       </div>
     </div>

@@ -1,0 +1,95 @@
+.cart-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cart-empty {
+    text-align: center;
+    margin-top: 50px;
+    color: black;
+}
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #111;
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: #fff;
+}
+
+.cart-summary h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #00A3CC;
+}
+
+.cart-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Botones estilo neón */
+.btn-neon, .btn-neon-small {
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background: #00A3CC;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-neon-small {
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    
+}
+
+.btn-neon:hover, .btn-neon-small:hover {
+    transform: scale(1.05);
+    background: #00A3CC;
+    color: #111;
+    box-shadow: 0 0 15px #00A3CC, 0 0 30px #00A3CC;
+}
+
+.btn-neon::before, .btn-neon-small::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,163,204,0.15) 20%, transparent 70%);
+    animation: pulse 3s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.6; }
+    100% { transform: scale(0.9); opacity: 0.5; }
+}
+
+.cart-buttons-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

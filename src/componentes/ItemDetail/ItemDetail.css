@@ -154,3 +154,100 @@
   min-width: 40px;
   text-align: center;
 }
+
+/* Estilo para Link que se vea como el botón neón negro de Agregar al carrito */
+.btn-neon {
+  position: relative;
+  margin-top: 30px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  background: #000;      /* negro de base */
+  color: #00A3CC;        /* texto celeste */
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  text-decoration: none; /* quita subrayado del Link */
+  display: inline-block; /* para que se comporte como botón */
+  text-align: center;
+}
+
+.btn-neon:hover {
+  transform: scale(1.05);
+  background: #00A3CC;
+  color: #fff;
+  box-shadow: 0 0 10px #00A3CC, 0 0 20px #00A3CC;
+}
+
+.btn-neon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,163,204,0.15) 20%, transparent 70%);
+  animation: pulse 3s infinite;
+  z-index: -1;
+}
+
+.btn-neon-small{
+  padding: 20px 0 0 0;
+}
+
+.botones-post-agregar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.botones-post-agregar button {
+  background-color: #000;
+  color: #00A3CC;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,163,204,0.2); /* glow más sutil */
+}
+
+.botones-post-agregar button:hover {
+  background-color: #00A3CC;
+  color: #fff;
+  box-shadow: 0 0 5px #00A3CC, 0 0 10px #00A3CC; /* glow más suave */
+}
+
+.botones-post-agregar a,
+.botones-post-agregar button {
+  background-color: #000;
+  color: #00A3CC;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,163,204,0.2);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.botones-post-agregar a:hover,
+.botones-post-agregar button:hover {
+  background-color: #00A3CC;
+  color: #fff;
+  box-shadow: 0 0 5px #00A3CC, 0 0 10px #00A3CC;
+}
+
+
