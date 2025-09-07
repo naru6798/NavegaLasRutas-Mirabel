@@ -1,13 +1,11 @@
-import CartWidget from "../CartWidget/CartWidget"
-import "./NavBar.css"
+import CartWidget from "../CartWidget/CartWidget";
+import "./NavBar.css";
 import logo from "../imgs/logo.png";
 import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <header>
-
-
       <div className="nav-container">
         <Link to="/" className="link-container">
           <div className="logo-container">
@@ -16,9 +14,16 @@ const NavBar = () => {
           </div>
         </Link>
 
+        {/* Checkbox oculto para el toggle */}
+        <input type="checkbox" id="menu-toggle" />
+        <label htmlFor="menu-toggle" className="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
 
         <div className="menu-cart-container">
-          <ul>
+          <ul className="menu">
             <li>
               <NavLink to="/categoria/Carteles" className="link-categorias">
                 Carteles
@@ -40,12 +45,11 @@ const NavBar = () => {
               </NavLink>
             </li>
           </ul>
-          <CartWidget/>
+          <CartWidget />
         </div>
-    </div>
-
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
