@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
-import { getUnProducto } from '../../asyncmock';
+import { useState, useEffect, use } from 'react';
+//import { getUnProducto } from '../../asyncmock';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import {db} from "../../services/config"
+import {doc, getDoc} from "firebase/firestore"
 
 
 const ItemDetailContainer = () => {
@@ -9,10 +11,23 @@ const ItemDetailContainer = () => {
 
     const {idItem} = useParams()
 
+
     useEffect(() => {
-        getUnProducto(idItem)
-        .then(respuesta => setProducto(respuesta))
-    }, [idItem])
+        const nuevoDoc = doc(db, "productos", idItem)
+
+        getDoc(nuevoDoc)
+        .then(res => {
+            const data = res.data()
+            const nuevoProducto = {id: res.id, ...data}
+            setProducto(nuevoProducto)
+        })
+        .catch(error)
+    },[idItem])
+
+    //useEffect(() => {
+    //    getUnProducto(idItem)
+    //    .then(respuesta => setProducto(respuesta))
+    //}, [idItem])
 
 
   return (

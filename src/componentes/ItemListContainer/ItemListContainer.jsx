@@ -1,34 +1,57 @@
 import "./ItemListContainer.css";
 import { useEffect, useState } from "react";
-import { getProductos, getProductoPorCategoria } from "../../asyncmock";
+/* import { getProductos, getProductoPorCategoria } from "../../asyncmock"; */
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import {db} from "../../services/config"
+import {collection, getDocs, query, where} from "firebase/firestore"
+import Loader from "../Loader/Loader";
 
 
-const ItemListContainer = ({  }) => {
+const ItemListContainer = () => {
 
 
     const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const {idCategoria} = useParams()
 
 
     useEffect(() => {
-        const funcionProductos = idCategoria ? getProductoPorCategoria : getProductos
+        setLoading(true)
+        const misProductos = idCategoria ? query(collection(db, "productos"), where("idCat", "==", idCategoria)) : collection(db, "productos")
 
-        funcionProductos(idCategoria)
-        .then(res => setProductos(res))
+        getDocs(misProductos)
+        .then(res => {
+            const nuevosProductos = res.docs.map(doc => {
+                const data = doc.data()
+                return {id: doc.id, ...data}
+            })
+            setProductos(nuevosProductos)
+        })
+        .catch(error)
+        .finally(() => {
+            setTimeout(() => setLoading(false), 300);
+        });
+    },[idCategoria])
+
+
+    //useEffect(() => {
+    //    const funcionProductos = idCategoria ? getProductoPorCategoria : getProductos
+
+    //    funcionProductos(idCategoria)
+    //    .then(res => setProductos(res))
         
         /*getProductos()
             .then(respuesta => setProductos(respuesta))*/
-    }, [idCategoria])
+    //}, [idCategoria])
 
-    console.log(productos);
+    
 
     return (
-        <div>{
-            <ItemList productos={productos} />
-        }</div>
+        <div>
+            {loading ? <Loader/> : <ItemList productos={productos}/>}
+        </div>
     )
 
 }

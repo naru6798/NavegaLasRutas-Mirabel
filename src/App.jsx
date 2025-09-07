@@ -6,6 +6,9 @@ import NavBar from './componentes/NavBar/NavBar'
 import Error from './componentes/Error/Error'
 import { CarritoProvider } from './context/CarritoContext'
 import Cart from './componentes/Cart/Cart'
+import Checkout from './componentes/Checkout/Checkout'
+import { ToastContainer } from 'react-toastify'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
@@ -23,10 +26,11 @@ const App = () => {
           <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
           <Route path="*" element={<Error/>}/>
           <Route path="/cart" element={<Cart/>}/>
+          <Route path="/checkout" element={<Checkout/>}/> 
         </Routes>
 
       </CarritoProvider>
-
+      <ToastContainer/>
     </BrowserRouter>
 
     </>

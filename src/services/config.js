@@ -1,3 +1,26 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: "hecteon.firebaseapp.com",
+  projectId: "hecteon",
+  storageBucket: "hecteon.firebasestorage.app",
+  messagingSenderId: "534547073703",
+  appId: "1:534547073703:web:51ddc211ccc355c3ca6982"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
+
+
+// Subirlo automaticamente
 const misProductos = [
     {id: "1", nombre: "Abierto.", precio: 40000, img: "/imgs/cartel-neon.png", idCat: "Carteles", desc: "Cartel de neón con el texto 'ABIERTO' en un diseño atractivo y luminoso.", stock: 10},
     {id: "2", nombre: "Let's Party.", precio: 60000, img: "/imgs/cartel-neon-2.png", idCat: "Carteles", desc: "Cartel de neón con el texto 'LET'S PARTY' ideal para eventos y celebraciones.", stock: 15},
@@ -15,31 +38,28 @@ const misProductos = [
     {id: "14", nombre: "Mesa ratona de resina", precio: 50000, img: "/imgs/mesita.webp", idCat: "Muebles", desc: "Mesa ratona de resina con un diseño único y moderno, perfecta para cualquier sala de estar.", stock: 10},
     {id: "15", nombre: "Banquetas", precio: 27000, img: "/imgs/banquetas.webp", idCat: "Muebles", desc: "Juego de banquetas de resina, ideales para complementar tu decoración y ofrecer asientos adicionales.", stock: 18},
     {id: "16", nombre: "Mesa", precio: 150000, img: "/imgs/mesa.webp", idCat: "Muebles", desc: "Mesa de comedor de resina, con un diseño elegante y resistente, perfecta para cualquier hogar.", stock: 5},
-
     ]
 
-export const getProductos = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(misProductos)
-        }, 100);
-    })
-}
+    import { collection, doc, writeBatch } from "firebase/firestore";
 
-export const getUnProducto = (id) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const producto = misProductos.find((item => item.id === id))
-            resolve(producto)
-        }, 100)
-    })
-}
+    const subirProductos = async () => {
+      const batch = writeBatch(db); //Crear un batch
+      const productosRef = collection(db, "productos"); //Referencia a la coleccion
 
-export const getProductoPorCategoria = (idCategoria) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const productosFiltrados = misProductos.filter(item => item.idCat === idCategoria)
-            resolve(productosFiltrados)
-        }, 100)
-    })
-}
+      //Recorrer el array de productos
+      misProductos.forEach((producto) => {
+        const nuevoDoc = doc(productosRef, producto.id); //Crear un nuevo documento con ID automatico
+        batch.set(nuevoDoc, producto); //Agregar la operacion al batch
+      });
+
+      //Ejecutar el batch
+      try {
+        await batch.commit();
+        console.log("Productos subidos correctamente");
+      } catch (error) {
+        console.error("Error al subir los productos: ", error);
+      }
+    };
+
+    // Llamar a la funcion para subir los productos
+    //subirProductos();
