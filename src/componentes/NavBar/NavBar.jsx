@@ -1,9 +1,16 @@
+import { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
 import logo from "../imgs/logo.png";
 import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header>
       <div className="nav-container">
@@ -14,16 +21,15 @@ const NavBar = () => {
           </div>
         </Link>
 
-        {/* Checkbox oculto para el toggle */}
-        <input type="checkbox" id="menu-toggle" />
-        <label htmlFor="menu-toggle" className="hamburger">
+        {/* Botón hamburguesa solo visible en móvil */}
+        <button className="hamburger-btn" onClick={toggleMenu}>
           <span></span>
           <span></span>
           <span></span>
-        </label>
+        </button>
 
-        <div className="menu-cart-container">
-          <ul className="menu">
+        <div className={`menu-cart-container ${menuOpen ? "open" : ""}`}>
+          <ul>
             <li>
               <NavLink to="/categoria/Carteles" className="link-categorias">
                 Carteles

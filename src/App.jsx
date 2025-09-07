@@ -8,7 +8,7 @@ import { CarritoProvider } from './context/CarritoContext'
 import Cart from './componentes/Cart/Cart'
 import Checkout from './componentes/Checkout/Checkout'
 import { ToastContainer } from 'react-toastify'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => {
   return (
