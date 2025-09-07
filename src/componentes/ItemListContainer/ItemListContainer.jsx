@@ -29,8 +29,9 @@ const ItemListContainer = () => {
             })
             setProductos(nuevosProductos)
         })
-        .catch(error)
+        .catch(error => console.log(error))
         .finally(() => {
+            console.log("Proceso finalizado")
             setTimeout(() => setLoading(false), 300);
         });
     },[idCategoria])

@@ -18,10 +18,12 @@ const ItemDetailContainer = () => {
         getDoc(nuevoDoc)
         .then(res => {
             const data = res.data()
+            console.log(data)
             const nuevoProducto = {id: res.id, ...data}
+            console.log(nuevoProducto)
             setProducto(nuevoProducto)
         })
-        .catch(error)
+        .catch(error => console.log(error))
     },[idItem])
 
     //useEffect(() => {
