@@ -88,3 +88,67 @@
   font-weight: bold;
   text-align: center;
 }
+
+
+
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .checkout-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .checkout-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .checkout-field input {
+    font-size: 0.95rem;
+    padding: 7px;
+  }
+
+  .checkout-button {
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  .checkout-container {
+    max-width: 95%;
+    margin: 15px auto;
+    padding: 10px;
+  }
+
+  .checkout-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .checkout-field input {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  .checkout-button {
+    padding: 7px;
+    font-size: 0.9rem;
+  }
+
+  .checkout-title {
+    font-size: 1.5rem;
+  }
+
+  .checkout-error, .checkout-success {
+    font-size: 0.9rem;
+  }
+}

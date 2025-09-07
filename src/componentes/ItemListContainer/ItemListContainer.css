@@ -4,3 +4,24 @@ h3 {
   color: #222;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  h3 {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  h3 {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}

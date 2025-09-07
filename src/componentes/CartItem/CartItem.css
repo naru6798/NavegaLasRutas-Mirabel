@@ -54,3 +54,70 @@
     background-color: #00A3CC;
     color: black;
 }
+
+
+
+
+
+
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .cart-item {
+        gap: 15px;
+        padding: 12px;
+    }
+
+    .cart-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cart-item-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .cart-item-info p {
+        font-size: 0.95rem;
+    }
+
+    .cart-item-info button {
+        padding: 6px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .cart-item img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .cart-item-info h4 {
+        font-size: 1rem;
+    }
+
+    .cart-item-info p {
+        font-size: 0.9rem;
+    }
+
+    .cart-item-info button {
+        align-self: center;
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}

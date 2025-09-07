@@ -251,3 +251,78 @@
 }
 
 
+
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .item-detail {
+    grid-template-columns: 1fr; /* una columna */
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .item-detail h2 {
+    font-size: 2rem;
+  }
+
+  .item-detail .precio {
+    font-size: 1.7rem;
+  }
+
+  .item-detail p {
+    font-size: 1rem;
+  }
+
+  .item-detail button,
+  .btn-neon {
+    font-size: 1rem;
+    padding: 12px 28px;
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  .item-detail {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+    margin: 20px auto;
+  }
+
+  .item-detail img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .item-detail h2 {
+    font-size: 1.7rem;
+  }
+
+  .item-detail .precio {
+    font-size: 1.5rem;
+  }
+
+  .item-detail p {
+    font-size: 0.95rem;
+  }
+
+  .item-detail button,
+  .btn-neon {
+    font-size: 0.95rem;
+    padding: 10px 24px;
+  }
+
+  .botones-post-agregar {
+    gap: 10px;
+  }
+
+  .botones-post-agregar a,
+  .botones-post-agregar button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}

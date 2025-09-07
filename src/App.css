@@ -9,3 +9,27 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  body {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  body {
+    font-size: 0.9rem;
+    padding: 0 10px; /* agrega un poco de espacio lateral */
+  }
+
+  * {
+    /* asegura que no se rompa el layout con elementos demasiado grandes */
+    max-width: 100%;
+  }
+}

@@ -24,3 +24,36 @@
   top: -5px;
   right: -5px;
 }
+
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .cart-widget img {
+    height: 35px;
+  }
+
+  .cart-count {
+    font-size: 0.85rem;
+    padding: 2px 5px;
+    top: -4px;
+    right: -4px;
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  .cart-widget img {
+    height: 30px;
+  }
+
+  .cart-count {
+    font-size: 0.8rem;
+    padding: 1px 4px;
+    top: -3px;
+    right: -3px;
+  }
+}

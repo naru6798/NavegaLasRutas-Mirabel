@@ -44,3 +44,43 @@
   justify-content: center;     /* centra horizontalmente */
   padding-top: 30px;
 }
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .contador-btn {
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+
+  .contador-num {
+    font-size: 20px;
+    min-width: 35px;
+    padding-top: 25px;
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  .contador-btn {
+    font-size: 16px;
+    padding: 4px 8px;
+  }
+
+  .contador-num {
+    font-size: 18px;
+    min-width: 30px;
+    padding-top: 20px;
+  }
+
+  .contador-container {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .contador-controles {
+    gap: 6px;
+  }
+}

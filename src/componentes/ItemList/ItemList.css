@@ -5,3 +5,34 @@
   gap: 20px;            /* espacio entre las cards */
   padding: 20px;
 }
+
+
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .item-list-container {
+    gap: 18px;
+    padding: 15px;
+  }
+
+  .item-card {
+    width: 45%; /* 2 cards por fila */
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  .item-list-container {
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .item-card {
+    width: 90%; /* 1 card por fila */
+    margin: 10px 0;
+  }
+}

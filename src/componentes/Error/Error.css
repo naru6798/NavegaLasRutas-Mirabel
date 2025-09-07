@@ -67,3 +67,44 @@
   50% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(0.9); opacity: 0.7; }
 }
+
+
+
+
+
+
+/* === MEDIA QUERIES === */
+
+/* Tablets: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .error-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .error-container p {
+    font-size: 1.1rem;
+    max-width: 80%;
+  }
+
+  .error-container button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile: hasta 767px */
+@media (max-width: 767px) {
+  .error-container h1 {
+    font-size: 2rem;
+  }
+
+  .error-container p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .error-container button {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+}
